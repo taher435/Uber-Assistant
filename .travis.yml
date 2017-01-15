@@ -1,0 +1,22 @@
+language: elixir
+elixir:
+  - 1.3.2
+otp_release:
+  - 18.2
+addons:
+  postgresql: "9.4"
+cache:
+  directories:
+    - _build
+    - deps
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+install:
+  - mix local.hex --force
+  - mix local.rebar --force
+  - mix deps.get
+env:
+  - MIX_ENV=test
+script:
+  - mix ecto.migrate
+  - mix coveralls.travis --pro

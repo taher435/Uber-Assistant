@@ -1,0 +1,26 @@
+---
+engines:
+  dogma:
+    enabled: true
+  credo:
+    enabled: true
+    channel: "beta"
+  csslint:
+    enabled: true
+  eslint:
+    enabled: true
+  fixme:
+    enabled: true
+ratings:
+  paths:
+  - "**.ex"
+  - "**.exs"
+  - "**.css"
+  - "**.js"
+  - "**.jsx"
+exclude_paths:
+- config/
+- test/
+- spec/
+- priv/templates
+- lib/mix/tasks/phoenix.gen.model.espec.ex
